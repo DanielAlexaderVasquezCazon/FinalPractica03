@@ -13,15 +13,21 @@ namespace PracticaFinal9.Controllers
     public class HumanosController : ControllerBase
     {   
         [HttpGet]
-        public Humano listar()
+        public string listar(string nombre)
         {
+            string palabra = "";
             Humano humano = new Humano
             {
                 nombre = "daniel",
                 edad = 18,
                 nacion = "bolivia"
             };
-            return humano;
+            if (nombre == humano.nombre) { palabra = nombre + " es igual a " + humano.nombre; }
+            else
+            {
+                palabra = nombre + " no es igual a " + humano.nombre;
+            }
+            return palabra;
         }
 
     }
